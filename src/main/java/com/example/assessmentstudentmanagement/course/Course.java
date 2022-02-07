@@ -1,8 +1,6 @@
 package com.example.assessmentstudentmanagement.course;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
@@ -15,13 +13,13 @@ import javax.persistence.*;
 
         @Id
         @SequenceGenerator(
-                name = "student_sequence",
-                sequenceName = "student_sequence",
+                name = "course_sequence",
+                sequenceName = "course_sequence",
                 allocationSize = 1
         )
         @GeneratedValue(
                 strategy = GenerationType.SEQUENCE,
-                generator = "student_sequence"
+                generator = "course_sequence"
         )
         private Long courseId;
         private String courseName;

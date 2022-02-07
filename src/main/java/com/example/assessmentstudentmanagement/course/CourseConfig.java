@@ -1,11 +1,10 @@
 package com.example.assessmentstudentmanagement.course;
 
-import com.example.assessmentstudentmanagement.course.Course;
-import com.example.assessmentstudentmanagement.student.Student;
+
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 
-import java.time.LocalDate;
+
 import java.util.List;
 
 public class CourseConfig {
@@ -23,7 +22,6 @@ public class CourseConfig {
                     "Java Language"
 
             );
-
 
             repository.saveAll(
                     List.of(WebCourse, Backend)
