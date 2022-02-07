@@ -32,6 +32,7 @@ public class RegistrationService {
 
         }
 
+
         //SECOND: Once email is validated, signUp the Student
 
         //THIRD: create a special token for registering the following student
@@ -58,6 +59,7 @@ public class RegistrationService {
     @Transactional
     public String confirmToken(String token) {
         //we need to check if confirmation token is there and also if it's confirmed
+
 
         // 1) Get the token , or else, throw an exception
         ConfirmationToken confirmationToken = confirmationTokenService
