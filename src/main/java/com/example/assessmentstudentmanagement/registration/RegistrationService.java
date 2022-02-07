@@ -17,9 +17,11 @@ public class RegistrationService {
             throw new IllegalStateException(
                     "email is not valid"
             );
+
+
         }
 
-
+        return null;
 
 
     }
