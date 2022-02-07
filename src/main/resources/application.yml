@@ -6,7 +6,7 @@ server:
 spring:
   datasource:
     password:
-    url: jdbc:postgresql://localhost:5432/studentManagement
+    url: jdbc:postgresql://localhost:5434/studentManagement
     username:
   jpa:
     hibernate:
