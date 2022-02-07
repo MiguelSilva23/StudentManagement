@@ -28,6 +28,8 @@ public class RegistrationService {
             throw new IllegalStateException(
                     "email is not valid"
             );
+
+
         }
 
         //SECOND: Once email is validated, signUp the Student
