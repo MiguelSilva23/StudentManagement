@@ -64,15 +64,24 @@ public class RegistrationController {
         System.out.println(token);
         model.addAttribute("studentName", regStudent.getFirstName());
 
-        return token == null ? "error_page" : "personal_page";
+        return token == null ? "error_page" : "checkEmail_page";
     }
 
     @PostMapping("/login")
     public String login(@ModelAttribute Student studentLogin, Model model){
-        System.out.println("login request: " + studentLogin);
+        System.out.println("login request name: " + studentLogin.getFirstName());
+        System.out.println("login request email: " + studentLogin.getEmail());
+
+
+
         Student authenticated = studentService.authenticate(studentLogin.getEmail(), studentLogin.getPassword());
+
+
+
         if(authenticated != null){
+            System.out.println(authenticated.getFirstName() + authenticated.getEmail());
             model.addAttribute("studentName",authenticated.getFirstName());
+
             return "personal_page";
         }else{
             return "error_page";

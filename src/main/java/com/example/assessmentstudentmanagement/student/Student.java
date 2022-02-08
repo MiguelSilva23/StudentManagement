@@ -9,7 +9,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import javax.persistence.*;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.List;
+
 
 @Entity
 @EqualsAndHashCode
@@ -46,7 +46,7 @@ public class Student implements UserDetails {
     //Many students can be enrolled in one course
     @ManyToOne
     //.........................................................................................
-    @JoinColumn(nullable = false,
+    @JoinColumn(nullable = true,
             name = "course_name"
     )
     private Course course;
