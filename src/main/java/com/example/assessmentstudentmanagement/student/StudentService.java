@@ -10,6 +10,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.Optional;
 import java.util.UUID;
 
 @Service
@@ -70,8 +71,16 @@ public class StudentService implements UserDetailsService {
                 );
     }
 
-    public Student authenticate (String email, String password) {
-        return studentRepository.findByEmailAndPassword(email, password).orElse(null);
+    public Student findByEmail(String email){
+
+        Optional<Student> myStudent = studentRepository.findByEmail(email);
+
+        return myStudent.get();
+    }
+
+    public boolean matchPassword(String logRequest, String passwordFromDB){
+
+        return bCryptPasswordEncoder.matches(logRequest,passwordFromDB);
     }
 
 

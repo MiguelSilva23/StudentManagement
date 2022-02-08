@@ -9,7 +9,11 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 
 @Configuration
 @AllArgsConstructor
@@ -25,13 +29,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .csrf().disable()
                 .authorizeRequests()
                 .antMatchers("/register","/")
-                .permitAll()
-                .anyRequest()
-                .authenticated().and()
-                .formLogin().loginPage("/login").permitAll()
-                .and()
-                .logout()
                 .permitAll();
+//                .anyRequest()
+//                .authenticated().and()
+//                .formLogin().loginPage("/login").permitAll()
+//                .and()
+//                .logout()
+//                .permitAll();
     }
 
     @Override
@@ -45,6 +49,19 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         provider.setPasswordEncoder(bCryptPasswordEncoder);
         provider.setUserDetailsService(studentService);
         return provider;
+    }
+
+    @Bean
+    @Override
+    public UserDetailsService userDetailsService() {
+        UserDetails user =
+                User.withDefaultPasswordEncoder()
+                        .username("email")
+                        .password("password")
+                        .roles("STUDENT")
+                        .build();
+
+        return new InMemoryUserDetailsManager(user);
     }
 
 }
