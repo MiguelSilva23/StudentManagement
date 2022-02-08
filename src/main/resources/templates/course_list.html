@@ -10,7 +10,7 @@
 <div align="center">
     <h1>PLease select one course: </h1>
 
-    <form method="post" action="/course_list_page" th:object="${courseList}">
+    <form method="post" action="/course_list">
         <label for="course">Choose a course:</label>
         <select name="course" id="course">
             <option th:each="course : ${courses}" th:value="${course}" th:text="${course}"></option>

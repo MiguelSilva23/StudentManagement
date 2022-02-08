@@ -1,6 +1,7 @@
 package com.example.assessmentstudentmanagement.course;
 
 
+import com.example.assessmentstudentmanagement.student.Student;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 
 import java.util.List;
+import java.util.Set;
 
 
 @AllArgsConstructor
@@ -17,7 +19,6 @@ import java.util.List;
 public class CourseController {
 
   private CourseService courseService;
-
 
   @GetMapping("/course_list")
   public String getStudentCourse(Model model) {
@@ -29,10 +30,7 @@ public class CourseController {
   }
 
   @PostMapping("/course_list")
-  public String selectedCourse(@ModelAttribute Course course, Model model) {
-
-    model.addAttribute("courseSelected", course.getCourseName());
-
+  public String selectedCourse() {
     return "course_selected";
 
   }
