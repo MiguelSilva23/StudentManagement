@@ -8,8 +8,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-
-
 import java.util.List;
 import java.util.Set;
 
@@ -42,9 +40,7 @@ public class CourseController {
 
 
  @GetMapping("/logout")
-  public String getLogoutPage(Model model){
-
-   model.addAttribute("logoutRequest", new Student());
+  public String getLogoutPage(){
     return "logout_page";
  }
 

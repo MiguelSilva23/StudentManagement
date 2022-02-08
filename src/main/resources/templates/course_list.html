@@ -8,18 +8,28 @@
 </head>
 <body>
 <div align="center">
-    <h1>PLease select one course: </h1>
+
+    <h1>Please select one course: </h1>
+
 
     <form method="post" action="/course_list_page" th:object="${courseList}">
         <label for="course">Choose a course:</label>
         <select name="course" id="course">
+
             <option th:each="course : ${courses}" th:value="${course}" th:text="${course}"></option>
+
         </select>
         <br><br>
         <input type="submit" value="Submit">
     </form>
 
     <p>Please click the "Submit" button.</p>
+
+
+    <div class="/logout">
+        <a href="/">Click here if you wish to log out</a>
+    </div>
+
 
 </div>
 </body>
