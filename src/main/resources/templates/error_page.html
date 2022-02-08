@@ -1,14 +1,21 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Error Page</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>Error page</title>
+    <link rel="stylesheet" href="CSS/indexstyle.css">
 </head>
 <body>
-<h1> You entered incorrect Data! Please retry your action again.</h1>
-<a href="/register">Navigate to registration page</a>
-<a href="/login">Navigate to login page</a>
+<div class="form">
+    <form method="post" action="/login" th:object="${loginRequest}">
+        <h2>You entered incorrect Data! Please retry your action again.</h2>
+
+        <div class="input-box">
+            <a href="/login">Login</a>
+        </div>
+        <div class="input-box">
+            <a href="/register">Register</a>
+        </div>
 
 </body>
 </html>
