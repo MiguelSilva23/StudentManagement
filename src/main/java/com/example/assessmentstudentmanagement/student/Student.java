@@ -72,7 +72,6 @@ public class Student implements UserDetails {
 
 
 
-//.........................................................................................
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         SimpleGrantedAuthority authority =

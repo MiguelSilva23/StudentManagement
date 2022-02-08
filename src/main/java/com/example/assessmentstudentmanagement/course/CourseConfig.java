@@ -3,10 +3,11 @@ package com.example.assessmentstudentmanagement.course;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
 
 import java.util.List;
-
+@Configuration
 public class CourseConfig {
     @Bean
     CommandLineRunner commandLineRunner(
@@ -23,8 +24,20 @@ public class CourseConfig {
 
             );
 
+            Course Frontend =  new Course(
+
+                    "Javascript Language"
+
+            );
+
+            Course Marketing =  new Course(
+
+                    "Marketing"
+
+            );
+
             repository.saveAll(
-                    List.of(WebCourse, Backend)
+                    List.of(WebCourse, Backend, Frontend, Marketing)
             );
         };
     }
