@@ -3,6 +3,7 @@ package com.example.assessmentstudentmanagement.registration;
 import com.example.assessmentstudentmanagement.email.EmailSender;
 import com.example.assessmentstudentmanagement.registration.token.ConfirmationToken;
 import com.example.assessmentstudentmanagement.registration.token.ConfirmationTokenService;
+import com.example.assessmentstudentmanagement.student.Role;
 import com.example.assessmentstudentmanagement.student.Student;
 import com.example.assessmentstudentmanagement.student.StudentService;
 import lombok.AllArgsConstructor;
@@ -40,8 +41,8 @@ public class RegistrationService {
                 request.getLastName(),
                 request.getEmail(),
                 request.getPassword(),
-                request.getCourseName(),
-                Role.STUDENT)
+                Role.STUDENT
+                )
 
         );
 

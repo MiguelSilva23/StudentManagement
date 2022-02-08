@@ -1,10 +1,7 @@
 package com.example.assessmentstudentmanagement.student;
 
 import com.example.assessmentstudentmanagement.course.Course;
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -18,6 +15,7 @@ import java.util.List;
 @EqualsAndHashCode
 @Getter
 @Setter
+@NoArgsConstructor
 public class Student implements UserDetails {
 
     @Id
@@ -53,11 +51,6 @@ public class Student implements UserDetails {
     )
     private Course course;
 
-
-    //We have no "noargsconstructor" or "allargsconstructor" because there should be no student
-    //without first name, lastname, email, password, and role. However, it is not necessary to have
-    // an ID because it is going to be generated from the primary key, and not from the person.
-
     //also have a Constructor without ID
     public Student(String firstName, String lastName, String email, String password, Role studentRole) {
         this.firstName = firstName;
@@ -66,6 +59,17 @@ public class Student implements UserDetails {
         this.password = password;
         this.studentRole = studentRole;
     }
+
+    public Student(String firstName, String lastName, String email, String password, Role studentRole, Course course) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.password = password;
+        this.studentRole = studentRole;
+        this.course = course;
+    }
+
+
 
 
 //.........................................................................................

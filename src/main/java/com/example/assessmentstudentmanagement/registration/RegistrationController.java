@@ -3,6 +3,7 @@ package com.example.assessmentstudentmanagement.registration;
 import com.example.assessmentstudentmanagement.registration.token.ConfirmationToken;
 import com.example.assessmentstudentmanagement.student.Student;
 import com.example.assessmentstudentmanagement.student.StudentRepository;
+import com.example.assessmentstudentmanagement.student.StudentService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,8 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class RegistrationController {
 
     private RegistrationService registrationService;
-    private ConfirmationToken confirmationToken;
-    private StudentRepository studentRepository;
+    private StudentService studentService;
 
 
     @GetMapping(path = "confirm")
@@ -26,7 +26,7 @@ public class RegistrationController {
 
         if (registrationService.confirmToken(token).equals("confirmed")) {
 
-            return "personal_page";
+            return "confirm_page";
 
         }else {
             return "error_page";
@@ -58,30 +58,24 @@ public class RegistrationController {
                         regStudent.getFirstName(),
                         regStudent.getLastName(),
                         regStudent.getEmail(),
-                        regStudent.getPassword(),
-                        regStudent.getCourse().getCourseName()
+                        regStudent.getPassword()
                         )
         );
-
+        System.out.println(token);
         model.addAttribute("studentName", regStudent.getFirstName());
 
         return token == null ? "error_page" : "personal_page";
     }
 
     @PostMapping("/login")
-    public String login(@ModelAttribute Student logStudent){
-
-
-        Student myLoginStudent = studentRepository.findByEmail(logStudent.getEmail());
-
-        if(myLoginStudent == null){
+    public String login(@ModelAttribute Student studentLogin, Model model){
+        System.out.println("login request: " + studentLogin);
+        Student authenticated = studentService.authenticate(studentLogin.getEmail(), studentLogin.getPassword());
+        if(authenticated != null){
+            model.addAttribute("studentName",authenticated.getFirstName());
+            return "personal_page";
+        }else{
             return "error_page";
         }
-        else if(!myLoginStudent.getPassword().equals(logStudent.getPassword())){
-            return "error_page";
-        }
-
-        return "personal_page"; // "redirect:/personal"
-
     }
 }
