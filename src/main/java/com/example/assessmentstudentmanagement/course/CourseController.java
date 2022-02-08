@@ -1,22 +1,32 @@
 package com.example.assessmentstudentmanagement.course;
 
-import com.example.assessmentstudentmanagement.student.Student;
+
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 
 @AllArgsConstructor
 @Controller
 public class CourseController {
 
-  private CourseService courseService;
 
-  @GetMapping("/course list")
-  public String getCourseListPage(Model model){
+  @GetMapping("/course_list_page")
+  public String getStudentCourse(Model model) {
 
-    model.addAttribute("regRequest", new Student());
+    //model.addAttribute("courseList", new Course());
 
-    return "course_list_page";
+    return "course_selected";
+  }
+
+  @PostMapping("/course_list_page")
+  public String selectedCourse(@ModelAttribute Course course, Model model) {
+
+    model.addAttribute("courseSelected", course.getCourseName());
+
+    return "course_selected";
+
   }
 }
