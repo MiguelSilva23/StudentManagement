@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>course_list_page</title>
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+<div align="center">
+    <h1>PLease select one course: </h1>
+
+    <form action="/action_page.php">
+        <label for="course">Choose a course:</label>
+        <select name="course" id="course">
+                <option value="Java">Java Language</option>
+            <option value="Web Design">Opel</option>
+        </select>
+        <br><br>
+        <input type="submit" value="Submit">
+    </form>
+
+    <p>Click the "Submit" button and the form-data will be sent to a page on the
+        server called "action_page.php".</p>
+
+</div>
+</body>
+</html>
+
+
