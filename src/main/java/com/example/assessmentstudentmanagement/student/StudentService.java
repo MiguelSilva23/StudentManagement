@@ -25,6 +25,7 @@ public class StudentService implements UserDetailsService {
     private final ConfirmationTokenService confirmationTokenService;
 
 
+
     public String signUpStudent(Student student) {
         boolean studentExists = studentRepository
                 .findByEmail(student.getEmail())
@@ -72,6 +73,7 @@ public class StudentService implements UserDetailsService {
     public Student authenticate (String email, String password) {
         return studentRepository.findByEmailAndPassword(email, password).orElse(null);
     }
+
 
 
 }

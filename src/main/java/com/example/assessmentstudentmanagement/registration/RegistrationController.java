@@ -45,7 +45,7 @@ public class RegistrationController {
     @GetMapping("/login")
     public String getLoginPage(Model model){
 
-        model.addAttribute("logRequest", new Student());
+       // model.addAttribute("logRequest", new Student());
 
         return "login_page";
     }
@@ -67,24 +67,27 @@ public class RegistrationController {
         return token == null ? "error_page" : "checkEmail_page";
     }
 
-    @PostMapping("/login")
-    public String login(@ModelAttribute Student studentLogin, Model model){
-        System.out.println("login request name: " + studentLogin.getFirstName());
-        System.out.println("login request email: " + studentLogin.getEmail());
-
-
-
-        Student authenticated = studentService.authenticate(studentLogin.getEmail(), studentLogin.getPassword());
-
-
-
-        if(authenticated != null){
-            System.out.println(authenticated.getFirstName() + authenticated.getEmail());
-            model.addAttribute("studentName",authenticated.getFirstName());
-
-            return "personal_page";
-        }else{
-            return "error_page";
-        }
-    }
+//    @PostMapping("/login")
+//    public String login(@ModelAttribute Student studentLogin, Model model){
+//
+//        System.out.println("login request email: " + studentLogin.getEmail());
+//        System.out.println("login request email: " + studentLogin.getPassword());
+//
+//
+//
+//        Student authenticated = studentService.authenticate(studentLogin.getEmail(), studentLogin.getPassword());
+//
+//
+//
+//
+//
+//        if(authenticated != null){
+//            System.out.println(authenticated.getFirstName() + authenticated.getEmail());
+//            model.addAttribute("studentName",authenticated.getFirstName());
+//
+//            return "personal_page";
+//        }else{
+//            return "error_page";
+//        }
+//    }
 }

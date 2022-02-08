@@ -87,6 +87,8 @@ public class RegistrationService {
         // 4) modify the confirmed time of the token to now
         confirmationTokenService.setConfirmedAt(token);
 
+        studentService.enableStudent(confirmationToken.getStudent().getEmail());
+
         return "confirmed";
 
     }
