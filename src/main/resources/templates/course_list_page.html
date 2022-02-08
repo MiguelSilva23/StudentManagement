@@ -10,18 +10,17 @@
 <div align="center">
     <h1>PLease select one course: </h1>
 
-    <form action="/action_page.php">
+    <form method="post" action="/course_list_page" th:object="${courseList}">
         <label for="course">Choose a course:</label>
         <select name="course" id="course">
                 <option value="Java">Java Language</option>
-            <option value="Web Design">Opel</option>
+            <option value="Web Design">Web Design </option>
         </select>
         <br><br>
         <input type="submit" value="Submit">
     </form>
 
-    <p>Click the "Submit" button and the form-data will be sent to a page on the
-        server called "action_page.php".</p>
+    <p>Please click the "Submit" button.</p>
 
 </div>
 </body>
