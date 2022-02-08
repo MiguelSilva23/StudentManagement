@@ -46,6 +46,8 @@ public class RegistrationService {
 
         );
 
+        System.out.println(token);
+
         //FOURTH:  create a confirmation link to be sent to the student email
         String link = "http://localhost:8080/confirm?token=" + token;
 
