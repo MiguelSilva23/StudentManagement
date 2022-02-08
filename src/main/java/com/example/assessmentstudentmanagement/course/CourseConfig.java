@@ -8,6 +8,7 @@ import org.springframework.context.annotation.Configuration;
 
 import java.util.List;
 
+
 @Configuration
 public class CourseConfig {
     @Bean
@@ -25,14 +26,24 @@ public class CourseConfig {
 
             );
 
-            Course Python =  new Course(
+          
+            Course Frontend =  new Course(
 
-                    "Python Language"
+                    "Javascript Language"
+
+            );
+
+            Course Marketing =  new Course(
+
+                    "Marketing"
+
 
             );
 
             repository.saveAll(
-                    List.of(WebCourse, Backend, Python)
+
+                    List.of(WebCourse, Backend, Frontend, Marketing)
+
             );
         };
     }
