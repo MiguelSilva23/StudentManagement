@@ -1,12 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Welcome page</title>
+    <link rel="stylesheet" href="css/indexstyle.css">
 </head>
 <body>
-<h1> Welcome to the Student Management System</h1>
-<a href="/register">Navigate to student registration</a>
-<a href="/login">Navigate to student login</a>
+<div class="form">
+    <form method="post" action="/login" th:object="${loginRequest}">
+        <h2>Welcome to the Student Management System</h2>
+
+        <div class="input-box">
+            <a href="/login">Login</a>
+        </div>
+        <div class="input-box">
+            <a href="/register">Register</a>
+        </div>
+
 </body>
 </html>
+

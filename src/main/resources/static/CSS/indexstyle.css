@@ -23,8 +23,8 @@ body::before {
     top: 50%;
     left: 25%;
     transform: translate(-50%, -50%);
-    width: 350px;
-    min-height: 400px;
+    width: 700px;
+    min-height: 150px;
     background-color: #fff;
     box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5);
     padding: 50px;
@@ -92,3 +92,4 @@ body::before {
 
 .form a:hover {
     color: #ff4987;
+}
