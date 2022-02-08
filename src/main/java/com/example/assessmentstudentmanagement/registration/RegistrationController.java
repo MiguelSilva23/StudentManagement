@@ -5,6 +5,7 @@ import com.example.assessmentstudentmanagement.student.Student;
 import com.example.assessmentstudentmanagement.student.StudentRepository;
 import com.example.assessmentstudentmanagement.student.StudentService;
 import lombok.AllArgsConstructor;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -45,7 +46,7 @@ public class RegistrationController {
     @GetMapping("/login")
     public String getLoginPage(Model model){
 
-       // model.addAttribute("logRequest", new Student());
+        model.addAttribute("logRequest", new Student());
 
         return "login_page";
     }
@@ -67,27 +68,18 @@ public class RegistrationController {
         return token == null ? "error_page" : "checkEmail_page";
     }
 
-//    @PostMapping("/login")
-//    public String login(@ModelAttribute Student studentLogin, Model model){
-//
-//        System.out.println("login request email: " + studentLogin.getEmail());
-//        System.out.println("login request email: " + studentLogin.getPassword());
-//
-//
-//
-//        Student authenticated = studentService.authenticate(studentLogin.getEmail(), studentLogin.getPassword());
-//
-//
-//
-//
-//
-//        if(authenticated != null){
-//            System.out.println(authenticated.getFirstName() + authenticated.getEmail());
-//            model.addAttribute("studentName",authenticated.getFirstName());
-//
-//            return "personal_page";
-//        }else{
-//            return "error_page";
-//        }
-//    }
+    @PostMapping("/login")
+    public String login(@ModelAttribute Student studentLogin, Model model){
+
+        Student authenticated = studentService.findByEmail(studentLogin.getEmail());
+
+        if(studentService.matchPassword(studentLogin.getPassword(),authenticated.getPassword())){
+
+            model.addAttribute("studentName",authenticated.getFirstName());
+
+            return "personal_page";
+        }else{
+            return "error_page";
+        }
+    }
 }
