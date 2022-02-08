@@ -8,8 +8,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-
-
 import java.util.List;
 import java.util.Set;
 
@@ -19,6 +17,9 @@ import java.util.Set;
 public class CourseController {
 
   private CourseService courseService;
+
+  //let´s firstly add method to a redirect user to this specific page, specific time leaf or html page
+  // we need to return string with the name of our html page
 
   @GetMapping("/course_list")
   public String getStudentCourse(Model model) {
@@ -37,9 +38,7 @@ public class CourseController {
 
 
  @GetMapping("/logout")
-  public String getLogoutPage(Model model){
-
-   model.addAttribute("logoutRequest", new Student());
+  public String getLogoutPage(){
     return "logout_page";
  }
 
