@@ -21,6 +21,9 @@ public class RegistrationController {
     private RegistrationService registrationService;
     private StudentService studentService;
 
+    //by default springboot has configuration to serve all html pages under templates
+    // and by default if you put index html page under static resources this page will be served autom. by springboot
+    // without any controller and mapping from the code, so in the static resources I just put the html files
 
     @GetMapping(path = "confirm")
     public String confirm(@RequestParam("token") String token) {

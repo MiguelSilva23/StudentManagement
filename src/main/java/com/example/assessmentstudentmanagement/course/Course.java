@@ -7,7 +7,8 @@ import lombok.Setter;
 
 import javax.persistence.*;
 
-
+//annotate any field with @Getter and/or @Setter, to let lombok generate the default getter/setter automatically
+//@Entity, indicating that it is a JPA entity.
 @Getter
 @Entity
 @Setter
