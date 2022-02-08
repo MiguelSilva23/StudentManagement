@@ -14,5 +14,5 @@ public class RegistrationRequest {
     private final String lastName;
     private final String email;
     private final String password;
-    private final String courseName;
+
 }

@@ -1,5 +1,6 @@
 package com.example.assessmentstudentmanagement.course;
 
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -9,6 +10,7 @@ import javax.persistence.*;
     @Getter
     @Entity
     @Setter
+    @EqualsAndHashCode
     public class Course {
 
         @Id

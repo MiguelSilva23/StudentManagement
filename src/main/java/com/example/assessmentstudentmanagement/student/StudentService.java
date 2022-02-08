@@ -1,5 +1,7 @@
 package com.example.assessmentstudentmanagement.student;
 
+import com.example.assessmentstudentmanagement.registration.token.ConfirmationToken;
+import com.example.assessmentstudentmanagement.registration.token.ConfirmationTokenService;
 import lombok.AllArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -75,5 +77,9 @@ public class StudentService implements UserDetailsService {
                                         String.format(STUDENT_NOT_FOUND_MSG,email)
                                 )
                 );
+    }
+
+    public Student authenticate (String email, String password) {
+        return studentRepository.findByEmailAndPassword(email, password).orElse(null);
     }
 }
