@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.Optional;
 
 @Repository
@@ -24,5 +25,6 @@ public interface StudentRepository extends JpaRepository<Student, Long> {
                     "WHERE s.email = ?1"
     )
     int enableStudent(String email);
+
 
 }

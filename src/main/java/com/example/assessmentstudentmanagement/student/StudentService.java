@@ -1,5 +1,6 @@
 package com.example.assessmentstudentmanagement.student;
 
+import com.example.assessmentstudentmanagement.course.Course;
 import com.example.assessmentstudentmanagement.registration.token.ConfirmationToken;
 import com.example.assessmentstudentmanagement.registration.token.ConfirmationTokenService;
 import lombok.AllArgsConstructor;
@@ -10,8 +11,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
-import java.util.Optional;
-import java.util.UUID;
+import java.util.*;
 
 @Service
 @AllArgsConstructor
@@ -83,6 +83,47 @@ public class StudentService implements UserDetailsService {
         return bCryptPasswordEncoder.matches(logRequest,passwordFromDB);
     }
 
+    public List<Student> getStudentList() {
+
+        List<Student> myList = studentRepository.findAll();
+        List<Student> myList2 = new ArrayList<>();
+        for(Student student : myList){
+            myList2.add(student);
+        }
+
+        return myList2;
+    }
 
 
+
+    public Optional<Student> findStudentByEmail(String email){
+        return studentRepository.findByEmail(email);
+    }
+
+    public void addStudent(Student newStudent){
+
+        studentRepository.save(newStudent);
+
+    }
+
+    public void removeStudent(String email){
+
+        Student removeStudent = findByEmail(email);
+
+        studentRepository.delete(removeStudent);
+    }
+
+    public void updateStudent(String email, String newName){
+
+        Student updateStudent = findByEmail(email);
+
+
+        updateStudent.setFirstName(newName);
+
+
+    }
+
+    public Optional<Student> getStudent(String email) {
+        return studentRepository.findByEmail(email);
+    }
 }
