@@ -24,9 +24,7 @@ public class CourseController {
  }
 
  @GetMapping("/logout")
-  public String getLogoutPage(Model model){
-
-   model.addAttribute("logoutRequest", new Student());
+  public String getLogoutPage(){
     return "logout_page";
  }
 }

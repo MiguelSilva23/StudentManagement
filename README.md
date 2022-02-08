@@ -4,6 +4,7 @@
 
 ## What does this app do?
 
+### For Students 
 If you would like to become a student of our school, you can come to our website and register as a student.
 We will need the following data from you:
 - First name
@@ -15,19 +16,27 @@ We will need the following data from you:
 We will send you a confirmation email. Please confirm this to successfully register.
 After you register, then CONGRATULATIONS! You're a student!
 
+You can then see the available courses and select one.
+When you're done, don't forget to log out!
+
+
+### For Managers 
+You will have administration rights, which allows you to update/add/delete Students 
+or update/add/delete Courses
+
 ## App Designers
 
 
 ### Angela
 - Student package
-- confirm_page template
+- Templates (HTML)
 
 ### Lucila
 - RegistrationService
 - Security package
 
 ### Miguel
-- Email package
+- Email & management packages
 - RegistrationController
 
 ###  Alice
