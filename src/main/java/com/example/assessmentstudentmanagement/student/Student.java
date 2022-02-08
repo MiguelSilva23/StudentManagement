@@ -18,7 +18,6 @@ import java.util.List;
 @EqualsAndHashCode
 @Getter
 @Setter
-@AllArgsConstructor
 public class Student implements UserDetails {
 
     @Id
@@ -31,53 +30,80 @@ public class Student implements UserDetails {
             strategy = GenerationType.SEQUENCE,
             generator = "student_sequence"
     )
-    private Long id;
 
+    //giving the Student some necessary fields
+    private Long id;
     private String firstName;
     private String lastName;
     private String email;
     private String password;
+    private Boolean enabled = false;
+
+
+    //this field comes from our enum
+    //.........................................................................................
+    @Enumerated(EnumType.STRING)
+    private Role studentRole;
+
+    //Many students can be enrolled in one course
     @ManyToOne
+    //.........................................................................................
     @JoinColumn(nullable = false,
             name = "course_name"
     )
     private Course course;
 
-    public Student() {
+
+    //We have no "noargsconstructor" or "allargsconstructor" because there should be no student
+    //without first name, lastname, email, password, and role. However, it is not necessary to have
+    // an ID because it is going to be generated from the primary key, and not from the person.
+
+    //also have a Constructor without ID
+    public Student(String firstName, String lastName, String email, String password, Role studentRole) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.password = password;
+        this.studentRole = studentRole;
     }
 
+
+//.........................................................................................
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
+        SimpleGrantedAuthority authority =
+                new SimpleGrantedAuthority(studentRole.name());
+        return Collections.singletonList(authority);
     }
 
     @Override
     public String getPassword() {
-        return null;
+        return password;
     }
 
+    //.........................................................................................
     @Override
     public String getUsername() {
-        return null;
+        return email;
     }
 
     @Override
     public boolean isAccountNonExpired() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isAccountNonLocked() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isCredentialsNonExpired() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isEnabled() {
-        return false;
+        return enabled;
     }
 }

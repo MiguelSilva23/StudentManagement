@@ -61,6 +61,7 @@ public class RegistrationService {
         //we need to check if confirmation token is there and also if it's confirmed
 
 
+
         // 1) Get the token , or else, throw an exception
         ConfirmationToken confirmationToken = confirmationTokenService
                 .getToken(token)
