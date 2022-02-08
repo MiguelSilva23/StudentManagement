@@ -1,5 +1,7 @@
 package com.example.assessmentstudentmanagement.course;
 
+import com.example.assessmentstudentmanagement.registration.RegistrationRequest;
+import com.example.assessmentstudentmanagement.student.Student;
 import lombok.AllArgsConstructor;
 
 import org.springframework.stereotype.Service;
@@ -15,43 +17,8 @@ import java.util.Set;
 public class CourseService  {
 
 
-
     private CourseRepository courseRepository;
-    List<Course> courseList = new ArrayList<>();
 
-
-    public void addCourse(String newCourseName) {
-        Course newCourse = new Course(newCourseName);
-          courseList.add(newCourse);
-          courseRepository.saveAll(courseList);
-    }
-
-    public void deleteCourse(String courseNameToDelete) {
-        courseList.remove(findCourse(courseNameToDelete));
-    }
-
-    public Course findCourse(String courseName){
-        Course myCourse;
-          for(Course course : courseList){
-            if(course.getCourseName().equals(courseName)){
-                myCourse = course;
-            }
-        }
-        return myCourse;
-
-    public List<Course> getCourse() {
-        return courseRepository.getCourse();
-    }
-
-    public List<Course> updateCourse(List<Course> courseList) {
-        return null;
-    }
-}
-
-
-
-
-    private CourseRepository courseRepository;
 
     public Set<String> getCourseNames() {
         List<Course> allCourses = courseRepository.findAll();
@@ -61,6 +28,7 @@ public class CourseService  {
         }
         return coursesNames;
     }
+
 }
 
 
