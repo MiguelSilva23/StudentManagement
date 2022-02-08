@@ -77,7 +77,7 @@ public class RegistrationController {
 
             model.addAttribute("studentName",authenticated.getFirstName());
 
-            return "personal_page";
+            return "course_list_page";
         }else{
             return "error_page";
         }
