@@ -1,4 +1,4 @@
-# Welcome To Our Student Management System for the _________ School!
+# Welcome To Our Student Management System for the ALMA School!
 
 "Join one of our short courses and learn new and verifiable skills for your career!"
 
