@@ -13,8 +13,7 @@
     <form method="post" action="/course_list_page" th:object="${courseList}">
         <label for="course">Choose a course:</label>
         <select name="course" id="course">
-                <option value="Java">Java Language</option>
-            <option value="Web Design">Web Design </option>
+            <option th:each="course : ${courses}" th:value="${course}" th:text="${course}"></option>
         </select>
         <br><br>
         <input type="submit" value="Submit">

@@ -8,20 +8,25 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.util.Set;
+
 @AllArgsConstructor
 @Controller
 public class CourseController {
 
+  private CourseService courseService;
 
-  @GetMapping("/course_list_page")
+
+  @GetMapping("/course_list")
   public String getStudentCourse(Model model) {
+    Set<String> courses = courseService.getCourseNames();
 
-    //model.addAttribute("courseList", new Course());
+    model.addAttribute("courses", courses);
 
-    return "course_selected";
+    return "course_list";
   }
 
-  @PostMapping("/course_list_page")
+  @PostMapping("/course_list")
   public String selectedCourse(@ModelAttribute Course course, Model model) {
 
     model.addAttribute("courseSelected", course.getCourseName());
