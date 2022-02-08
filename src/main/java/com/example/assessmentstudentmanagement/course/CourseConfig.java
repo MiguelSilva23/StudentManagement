@@ -7,6 +7,8 @@ import org.springframework.context.annotation.Configuration;
 
 
 import java.util.List;
+
+
 @Configuration
 public class CourseConfig {
     @Bean
@@ -24,6 +26,7 @@ public class CourseConfig {
 
             );
 
+          
             Course Frontend =  new Course(
 
                     "Javascript Language"
@@ -34,10 +37,13 @@ public class CourseConfig {
 
                     "Marketing"
 
+
             );
 
             repository.saveAll(
+
                     List.of(WebCourse, Backend, Frontend, Marketing)
+
             );
         };
     }
