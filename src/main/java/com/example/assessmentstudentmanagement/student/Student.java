@@ -39,13 +39,13 @@ public class Student implements UserDetails {
 
 
     //this field comes from our enum
-    //.........................................................................................
+
     @Enumerated(EnumType.STRING)
     private Role studentRole;
 
     //Many students can be enrolled in one course
     @ManyToOne
-    //.........................................................................................
+
     @JoinColumn(nullable = true,
             name = "course_name"
     )
@@ -84,7 +84,7 @@ public class Student implements UserDetails {
         return password;
     }
 
-    //.........................................................................................
+
     @Override
     public String getUsername() {
         return email;

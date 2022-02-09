@@ -11,8 +11,12 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-@Transactional(readOnly = true) //..................................................
+@Transactional(readOnly = true)
 public interface StudentRepository extends JpaRepository<Student, Long> {
+
+
+//in the JpaRep. specifying entity for the Jpa and primary key type entities student and primary key type is id
+//let´s add by find by email and password
 
     Optional<Student> findByEmail(String email);
     Optional<Student> findByEmailAndPassword(String email, String password);
