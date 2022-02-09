@@ -16,10 +16,12 @@ import java.util.Set;
 @Controller
 public class CourseController {
 
+
   private CourseService courseService;
 
   //let´s firstly add method to a redirect user to this specific page, specific time leaf or html page
   // we need to return string with the name of our html page
+
   @GetMapping("/course_list")
   public String getStudentCourse(Model model) {
     Set<String> courses = courseService.getCourseNames();
@@ -30,10 +32,7 @@ public class CourseController {
   }
 
   @PostMapping("/course_list")
-  public String selectedCourse(@ModelAttribute Course course, Model model) {
-
-    model.addAttribute("courseSelected", course.getCourseName());
-
+  public String selectedCourse() {
     return "course_selected";
 
   }
@@ -43,5 +42,6 @@ public class CourseController {
   public String getLogoutPage(){
     return "logout_page";
  }
+
 
 }
