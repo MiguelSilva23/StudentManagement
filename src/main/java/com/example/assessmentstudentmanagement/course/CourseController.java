@@ -17,31 +17,31 @@ import java.util.Set;
 public class CourseController {
 
 
-  private CourseService courseService;
+    private CourseService courseService;
 
-  //let´s firstly add method to a redirect user to this specific page, specific time leaf or html page
-  // we need to return string with the name of our html page
+    //let´s firstly add method to a redirect user to this specific page, specific time leaf or html page
+    // we need to return string with the name of our html page
 
-  @GetMapping("/course_list")
-  public String getStudentCourse(Model model) {
-    Set<String> courses = courseService.getCourseNames();
+    @GetMapping("/course_list")
+    public String getStudentCourse(Model model) {
+        Set<String> courses = courseService.getCourseNames();
 
-    model.addAttribute("courses", courses);
+        model.addAttribute("courses", courses);
 
-    return "course_list";
-  }
+        return "course_list";
+    }
 
-  @PostMapping("/course_list")
-  public String selectedCourse() {
-    return "course_selected";
+    @PostMapping("/course_list")
+    public String selectedCourse() {
+        return "course_selected";
 
-  }
+    }
 
 
- @GetMapping("/logout")
-  public String getLogoutPage(){
-    return "logout_page";
- }
+    @GetMapping("/logout")
+    public String getLogoutPage(){
+        return "logout_page";
+    }
 
 
 }

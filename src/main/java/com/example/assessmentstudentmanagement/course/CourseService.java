@@ -7,19 +7,47 @@ import lombok.AllArgsConstructor;
 
 import org.springframework.stereotype.Service;
 
+
 import java.util.ArrayList;
+
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-
 @Service
 @AllArgsConstructor
-public class CourseService  {
 
-
-
+public class CourseService {
+    
     private CourseRepository courseRepository;
+    
+    public void addCourse(Course newCourse) {
+        courseRepository.save(newCourse);
+    }
+
+    public void deleteCourse(String deleteCourse) {
+
+        List<Course> allCourses = courseRepository.findAll();
+
+        for (Course course : allCourses) {
+            if (course.getCourseName().equals(deleteCourse)) {
+                courseRepository.delete(course);
+            }
+        }
+    }
+
+    public void updateCourse(String updateCourse, String newName) {
+        List<Course> allCourses = courseRepository.findAll();
+
+        for (Course course : allCourses) {
+            if (course.getCourseName().equals(updateCourse)) {
+                course.setCourseName(newName);
+            } // probably won't work
+
+
+            courseRepository.save(course);
+        }
+    }
 
 
     public Set<String> getCourseNames() {
@@ -30,11 +58,7 @@ public class CourseService  {
         }
         return coursesNames;
     }
-
-
 }
-
-
 
 
 
