@@ -22,6 +22,8 @@ public class StudentService implements UserDetailsService {
     private final static String  STUDENT_NOT_FOUND_MSG =
             "student with email %s not found";
 
+    //Implementation of PasswordEncoder that uses the BCrypt strong hashing function. Clients can optionally supply a "strength"
+    // (a.k.a. log rounds in BCrypt) and a SecureRandom instance. The larger the strength parameter the more work will have to be done (exponentially) to hash the passwords.
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
     private final ConfirmationTokenService confirmationTokenService;
 

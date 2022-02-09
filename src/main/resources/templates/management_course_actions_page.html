@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>COURSES: Management Actions</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<h1>What action would you like to take with the courses? </h1>
+
+<div class="form">
+
+    <div class="input-box">
+        <i class="fa fa-user" aria-hidden="true"></i>
+        <input type="text" name="add" placeholder="Type in a course to add" required>
+    </div>
+    <div class="/add_course">
+        <a href="/add_course">Add a new course</a>
+    </div>
+
+    <div class="input-box">
+        <i class="fa fa-user" aria-hidden="true"></i>
+        <input type="text" name="delete" placeholder="Type in a course to delete" required>
+    </div>
+    <div class="/delete_course">
+        <a href="/delete_course">Delete an existing course</a>
+    </div>
+
+    <div class="input-box">
+        <i class="fa fa-user" aria-hidden="true"></i>
+        <input type="text" name="update" placeholder="Type in course to update" required>
+    </div>
+    <div class="/update_course">
+        <a href="/update_course">Update an existing course</a>
+    </div>
+
+    <div class="/logout">
+        <a href="/">Click here if you wish to log out</a>
+    </div>
+
+</body>
+</html>
