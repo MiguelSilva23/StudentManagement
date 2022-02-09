@@ -1,5 +1,6 @@
 package com.example.assessmentstudentmanagement.management;
 
+import com.example.assessmentstudentmanagement.course.Course;
 import com.example.assessmentstudentmanagement.course.CourseService;
 import com.example.assessmentstudentmanagement.student.Student;
 import com.example.assessmentstudentmanagement.student.StudentService;
@@ -31,7 +32,7 @@ public class managementController {
     String updateCourse(){return "update_course";}
 
     @PostMapping("/management/courses/add")
-    String addCourse2(@ModelAttribute String newNameCourse){
+    String addCourse2(@ModelAttribute Course newNameCourse){
 
         courseService.addCourse(newNameCourse);
 
@@ -47,9 +48,9 @@ public class managementController {
     }
 
     @PostMapping("/management/courses/update")
-    String addCourse2(@ModelAttribute String newNameCourse){
+    String addCourse2(@ModelAttribute String findCourse, @ModelAttribute String newNameCourse ){
 
-        courseService.updateCourse(newNameCourse);
+        courseService.updateCourse(findCourse, newNameCourse);
 
         return "redirect:/management/courses";
     }
