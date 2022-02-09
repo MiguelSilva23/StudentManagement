@@ -16,6 +16,7 @@ import java.util.Set;
 @Controller
 public class CourseController {
 
+
   private CourseService courseService;
 
   //let´s firstly add method to a redirect user to this specific page, specific time leaf or html page
@@ -41,5 +42,6 @@ public class CourseController {
   public String getLogoutPage(){
     return "logout_page";
  }
+
 
 }
