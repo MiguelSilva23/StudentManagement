@@ -19,6 +19,15 @@ public class CourseController {
 
     private CourseService courseService;
 
+    //this constr. is just needed for testing, but in reason of using lombok, it`` not needed
+   // public CourseController(CourseService courseService) {
+    //    this.courseService = courseService;
+
+
+
+
+
+
     //let´s firstly add method to a redirect user to this specific page, specific time leaf or html page
     // we need to return string with the name of our html page
 
