@@ -44,6 +44,10 @@ public class Student implements UserDetails {
     private Role studentRole;
 
     //Many students can be enrolled in one course
+    //@JoinColumn is used to map a database join column in entities.
+    // In situations when we want to create multiple join columns, we can use the @JoinColumns annotation:
+    //Nullable indicates if the concerned column can be null or not.
+    //the nullable value is set to true
     @ManyToOne
 
     @JoinColumn(nullable = true,

@@ -26,6 +26,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     //It allows configuring web based security for specific HTTP requests. By default it will be applied to all requests,
     // but can be restricted using requestMatcher(RequestMatcher) or other similar methods.
     //we don`` use all of them because we don`` want to have the default
+
+    //Authorization Setting
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
